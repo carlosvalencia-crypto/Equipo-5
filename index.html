@@ -1,153 +1,445 @@
-<title>Sistema Hidráulico</title>
 
-<header>
-    <h1>Sistema Hidráulico</h1>
-    <p>Importancia y funcionamiento en la vida moderna</p>
-</header>
-<!DOCTYPE html>
+<!DOCTYPE html> <!-- Documento HTML5 -->
+
 <html lang="es">
+
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Sistema Hidráulico</title>
 
 <style>
-    body{
-        font-family: Arial, sans-serif;
-        background-color: #f2f7ff;
-        margin: 0;
-        padding: 0;
-        color: #333;
+
+/* ========================= */
+/* CONFIGURACIÓN GENERAL */
+/* ========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background: linear-gradient(135deg,#4facfe,#00c6fb);
+    color:#222;
+}
+
+/* ========================= */
+/* NAVBAR */
+/* ========================= */
+
+.navbar{
+    position:fixed;
+    top:0;
+    width:100%;
+    background:rgba(0,0,0,0.85);
+
+    backdrop-filter:blur(10px);
+
+    display:flex;
+    justify-content:center;
+    gap:20px;
+
+    padding:20px;
+
+    z-index:1000;
+
+    box-shadow:0 5px 15px rgba(0,0,0,0.3);
+}
+
+.navbar a{
+    color:white;
+    text-decoration:none;
+    font-size:18px;
+    font-weight:bold;
+    padding:10px 20px;
+    border-radius:30px;
+    transition:0.3s;
+}
+
+.navbar a:hover{
+    background:#0097a7;
+    transform:scale(1.05);
+}
+
+/* ========================= */
+/* ENCABEZADO */
+/* ========================= */
+
+header{
+    text-align:center;
+    padding:90px 20px;
+    margin-top:80px;
+
+    color:white;
+
+    background:
+    linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),
+    url('https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1400') center/cover;
+}
+
+header h1{
+    font-size:70px;
+    margin-bottom:20px;
+
+    text-shadow:3px 3px 10px rgba(0,0,0,0.5);
+}
+
+header p{
+    font-size:25px;
+    max-width:900px;
+    margin:auto;
+}
+
+/* ========================= */
+/* CONTENEDOR */
+/* ========================= */
+
+.contenedor{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+    padding:50px 0;
+}
+
+/* ========================= */
+/* TARJETAS */
+/* ========================= */
+
+.card{
+    background:white;
+    border-radius:25px;
+    margin-bottom:40px;
+    overflow:hidden;
+
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+
+    transition:0.4s;
+
+    animation: aparecer 1s ease;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+@keyframes aparecer{
+
+    from{
+        opacity:0;
+        transform:translateY(40px);
     }
 
-    header{
-        background-color: #005b96;
-        color: white;
-        text-align: center;
-        padding: 30px;
+    to{
+        opacity:1;
+        transform:translateY(0);
     }
 
-    section{
-        background-color: white;
-        margin: 20px;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
-    }
+}
 
-    h2{
-        color: #005b96;
-    }
+.texto{
+    padding:35px;
+}
 
-    ul{
-        line-height: 1.8;
-    }
+.texto h2{
+    color:#0097a7;
+    margin-bottom:20px;
+    font-size:40px;
 
-    footer{
-        background-color: #005b96;
-        color: white;
-        text-align: center;
-        padding: 15px;
-        margin-top: 20px;
-    }
+    text-shadow:0 0 10px rgba(0,151,167,0.4);
+}
 
-    .imagen{
-        text-align: center;
-        margin-top: 15px;
-    }
+.texto p{
+    font-size:20px;
+    line-height:1.8;
+}
 
-    img{
-        width: 80%;
-        max-width: 500px;
-        border-radius: 10px;
-    }
+/* ========================= */
+/* IMÁGENES */
+/* ========================= */
+
+.imagenes{
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    flex-wrap:wrap;
+    padding:30px;
+}
+
+.imagenes img{
+    width:45%;
+    min-width:300px;
+    border-radius:20px;
+
+    box-shadow:0 10px 20px rgba(0,0,0,0.25);
+
+    transition:0.4s;
+}
+
+.imagenes img:hover{
+    transform:scale(1.03);
+}
+
+/* ========================= */
+/* LISTAS */
+/* ========================= */
+
+.lista{
+    margin-top:20px;
+    padding-left:20px;
+}
+
+.lista li{
+    margin-bottom:10px;
+    font-size:19px;
+}
+
+/* ========================= */
+/* FOOTER */
+/* ========================= */
+
+footer{
+    background:#0097a7;
+    color:white;
+    text-align:center;
+    padding:60px 20px;
+}
+
+footer h2{
+    font-size:45px;
+    margin-bottom:20px;
+}
+
+footer p{
+    font-size:22px;
+    max-width:900px;
+    margin:auto;
+}
+
 </style>
 
 </head>
+
 <body>
 
-<header>
+<!-- ========================= -->
+<!-- NAVBAR -->
+<!-- ========================= -->
+
+<nav class="navbar">
+
+    <a href="#inicio">Inicio</a>
+
+    <a href="#introduccion">Introducción</a>
+
+    <a href="#conceptos">Conceptos</a>
+
+    <a href="#investigacion">Investigación</a>
+
+    <a href="#conclusion">Conclusión</a>
+
+</nav>
+
+<!-- ========================= -->
+<!-- HEADER -->
+<!-- ========================= -->
+
+<header id="inicio">
+
     <h1>Sistema Hidráulico</h1>
-    <p>Importancia y funcionamiento en la vida moderna</p>
+
+    <p>
+        Tecnología que permite mover objetos pesados
+        de forma eficiente y segura utilizando líquidos a presión.
+    </p>
+
 </header>
 
-<section>
-    <h2>Introducción</h2>
-    <p>
-        Los sistemas hidráulicos se utilizan en muchas actividades diarias e industriales 
-        porque permiten realizar trabajos pesados de manera más eficiente y segura que usando 
-        fuerza directa. Están presentes en máquinas como grúas, elevadores y frenos de automóviles.
-    </p>
+<!-- ========================= -->
+<!-- CONTENEDOR -->
+<!-- ========================= -->
 
-    <div class="imagen"><img src="https://seremacarretillas.com/wp-content/uploads/2025/04/Esquema-basico-como-funciona-un-sistema-hidraulico.png" alt="Qué es la hidráulica? Significado, funcionamiento y aplicaciones - SEREMA  CARRETILLAS" width="266" height="201" class="sFlh5c FyHeAf iPVvYb" style="max-width: 1536px; width: 177px; height: 118px; margin: 0px;" jsaction="" jsname="kn3ccd"></div>
-</section>
+<div class="contenedor">
 
-<section>
-    <h2>Conceptos Tecnológicos</h2>
+    <!-- INTRODUCCIÓN -->
 
-    <ul>
-      <li><strong>Transmisión de potencia:</strong> Permiten transmitir energía mediante fluidos a presión.</li>
+    <div class="card" id="introduccion">
 
-        <li><strong>Multiplicación de fuerza:</strong> Gracias al Principio de Pascal, una fuerza pequeña puede convertirse en una mayor.</li>
+        <div class="texto">
 
-        <li><strong>Control y precisión:</strong> Permiten controlar velocidad, dirección y fuerza.</li>
+            <h2>Introducción</h2>
 
-        <li><strong>Alta densidad de potencia:</strong> Generan grandes fuerzas con equipos compactos.</li>
+            <p>
+                Los sistemas hidráulicos se utilizan en muchas actividades
+                diarias e industriales porque permiten realizar trabajos
+                pesados de manera más eficiente y segura que usando fuerza directa.
+            </p>
 
-        <li><strong>Seguridad operativa:</strong> Reducen el esfuerzo humano y mejoran la estabilidad.</li>
+            <p>
+                Están presentes en máquinas como grúas, elevadores,
+                excavadoras y frenos de automóviles.
+            </p>
 
-        <li><strong>Eficiencia mecánica:</strong> Tienen pocas pérdidas de energía.</li>
-  </ul>
-</section>
+            <p>
+                Gracias a estos sistemas, las máquinas pueden mover
+                objetos muy pesados utilizando poca fuerza física.
+            </p>
 
-<section>
-    <h2>Investigación</h2>
+        </div>
 
-    <h3>Hidráulica Básica</h3>
-    <p>
-        Los sistemas hidráulicos funcionan gracias a la presión que se ejerce sobre un líquido.
-        Esto permite levantar objetos pesados utilizando poca fuerza.
-    </p>
+        <div class="imagenes"><img src="https://seremacarretillas.com/wp-content/uploads/2025/04/Esquema-basico-como-funciona-un-sistema-hidraulico.png" alt="Qué es la hidráulica? Significado, funcionamiento y aplicaciones - SEREMA  CARRETILLAS"/><img src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Hydraulic_lift.jpg">
 
-    <h3>Ingeniería Mecánica</h3>
-    <p>
-        En la ingeniería moderna, los sistemas hidráulicos permiten multiplicar la fuerza gracias
-        al Principio de Pascal.
-    </p>
+        </div>
 
-    <h3>Principio de Pascal</h3>
-    <p>
-        Este principio explica que la presión aplicada a un líquido encerrado se transmite de
-        forma uniforme en todas las direcciones.
-    </p>
+    </div>
 
-    <h3>Aplicaciones Industriales</h3>
-    <p>
-        Los sistemas hidráulicos se utilizan en fábricas, excavadoras, grúas y elevadores porque
-        permiten realizar trabajos pesados con mayor precisión y seguridad.
-    </p>
+    <!-- CONCEPTOS TECNOLÓGICOS -->
 
-    <h3>Nuevas Tecnologías</h3>
-    <p>
-        Actualmente se desarrollan sistemas hidráulicos más modernos que utilizan menos energía
-        y contaminan menos.
-    </p>
-</section>
+    <div class="card" id="conceptos">
 
-<section>
-    <h2>Conclusión</h2>
+        <div class="texto">
 
-    <p>
-        Los sistemas hidráulicos son muy importantes porque permiten realizar trabajos pesados
-        de forma más fácil, segura y eficiente. Gracias al Principio de Pascal, una pequeña fuerza
-        puede convertirse en una fuerza mayor, facilitando muchas actividades industriales y de
-        la vida diaria.
-    </p>
-</section>
+            <h2>Conceptos Tecnológicos</h2>
+
+            <ul class="lista">
+
+                <li>
+                    <strong>Transmisión de potencia:</strong>
+                    permiten transmitir energía mediante líquidos a presión.
+                </li>
+
+                <li>
+                    <strong>Multiplicación de fuerza:</strong>
+                    una fuerza pequeña puede transformarse en una fuerza mayor.
+                </li>
+
+                <li>
+                    <strong>Control y precisión:</strong>
+                    permiten regular velocidad, dirección y fuerza.
+                </li>
+
+                <li>
+                    <strong>Alta densidad de potencia:</strong>
+                    generan grandes fuerzas utilizando equipos compactos.
+                </li>
+
+                <li>
+                    <strong>Seguridad operativa:</strong>
+                    reducen el esfuerzo humano y mejoran la estabilidad.
+                </li>
+
+                <li>
+                    <strong>Eficiencia mecánica:</strong>
+                    tienen pocas pérdidas de energía.
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+    <!-- INVESTIGACIÓN -->
+
+    <div class="card" id="investigacion">
+
+        <div class="texto">
+
+            <h2>Investigación</h2>
+
+            <p>
+                Los sistemas hidráulicos funcionan gracias a la presión
+                que se ejerce sobre un líquido, normalmente aceite o agua.
+            </p>
+
+            <p>
+                Cuando se aplica una fuerza en un punto del sistema,
+                la presión se transmite por todo el líquido y puede generar
+                una fuerza mucho mayor en otro punto.
+            </p>
+
+            <p>
+                Este funcionamiento se basa en el Principio de Pascal,
+                el cual establece que la presión aplicada a un líquido
+                encerrado se distribuye uniformemente en todas las direcciones.
+            </p>
+
+            <p>
+                Los sistemas hidráulicos se utilizan en excavadoras,
+                elevadores, prensas industriales y frenos hidráulicos.
+            </p>
+
+            <p>
+                Actualmente muchas empresas desarrollan tecnologías hidráulicas
+                más modernas que utilizan menos energía y contaminan menos.
+            </p>
+
+        </div>
+
+        <div class="imagenes">
+
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2d/Brake_system.jpg">
+
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Crane_machine.jpg">
+
+        </div>
+
+    </div>
+
+    <!-- CONCLUSIÓN -->
+
+    <div class="card" id="conclusion">
+
+        <div class="texto">
+
+            <h2>Conclusión</h2>
+
+            <p>
+                Los sistemas hidráulicos son fundamentales en la vida moderna
+                porque permiten realizar trabajos pesados de forma más fácil,
+                segura y eficiente.
+            </p>
+
+            <p>
+                Gracias al Principio de Pascal,
+                una pequeña fuerza puede convertirse en una fuerza mucho mayor.
+            </p>
+
+            <p>
+                Además, estos sistemas ayudan a mejorar la productividad
+                y reducir el esfuerzo humano en muchas actividades.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ========================= -->
+<!-- FOOTER -->
+<!-- ========================= -->
 
 <footer>
-    <p>Sistema Hidráulico</p>
+
+    <h2>La hidráulica mueve el mundo moderno</h2>
+
+    <p>
+        La tecnología hidráulica facilita el trabajo humano
+        y mejora la productividad en la vida diaria e industrial.
+    </p>
+
 </footer>
 
 </body>
+
 </html>
